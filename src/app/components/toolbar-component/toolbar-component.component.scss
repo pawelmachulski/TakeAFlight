@@ -1,0 +1,52 @@
+.toolbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 400;
+}
+.toolbar svg{
+  margin: 20px;
+  padding-left: 40px;
+}
+.toolbar svg:hover {
+  opacity: 0.8;
+  width: 50px;
+  height: 50px
+
+}
+.toolbar span{
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 3px;
+  margin-left: 5px;
+}
+
+.toolbar-links ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+}
+
+.toolbar-links ul li {
+  list-style: none;
+}
+
+.toolbar-links ul li a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500px;
+}
+
+.toolbar-links ul li a:hover {
+  opacity: 0.9;
+}
+
+.spacer {
+  flex: 1;
+}

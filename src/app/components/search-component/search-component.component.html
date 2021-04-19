@@ -1,0 +1,42 @@
+<div class="main">
+<div class="img">
+  <img src="https://i.ibb.co/CM4k9nJ/FJ-default-image-optimized.jpg" alt="">
+</div>
+  <div class="header">Loty</div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="search-main">
+        <div class="search passengers">
+          <label type="text">
+            <fa-icon class="searchIcon" [icon]="passangersIcon"></fa-icon>
+            <input formControlName="passengers" type="number" id="quantity" name="quantity" min="1" max="10" required>
+          </label>
+        </div>
+        <div class="search departure">
+          <fa-icon class="searchIcon" [icon]="departureIcon"></fa-icon>
+          <select formControlName="place" (change)="setDestinations()" required>
+            <option [value]="" disabled selected>Skąd lecisz?</option>
+            <option *ngFor="let place of places let i = index" [ngValue]="place">
+              {{place}}
+            </option>
+          </select>
+        </div>
+        <div class="search arrival">
+          <fa-icon class="searchIcon" [icon]="arrivalIcon"></fa-icon>
+          <select formControlName="destination" required>
+            <option [value]="" disabled selected>Dokąd lecisz?</option>
+            <option *ngFor="let destination of destinations let i = index" [ngValue]="destination">
+              {{destination}}
+            </option>
+          </select>
+        </div>
+        <div class="search date">
+          <label type="date">
+            <input formControlName="date" id="inputDate" type="date" value="{{minDate|date:'yyyy-MM-dd'}}" min="{{minDate|date:'yyyy-MM-dd'}}" max="{{maxDate|date:'yyyy-MM-dd'}}" >
+          </label>
+        </div>
+    </div>
+    <div class="btn" id="searchBtn">
+      <button type="submit" class="btn"><fa-icon class="searchIcon" [icon]="searchIcon"></fa-icon>Szukaj</button>
+    </div>
+  </form>
+</div>

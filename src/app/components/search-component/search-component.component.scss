@@ -1,0 +1,49 @@
+
+.header{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  position: relative;
+  font-weight: 400;
+  font-stretch: normal;
+  font-size: 56px;
+  line-height: 64px;
+  font-family: "Google Sans Display", Roboto, Arial, sans-serif;
+  margin-top: 10px;
+}
+
+.img img{
+  margin-top: 10px;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.6;
+  filter: grayscale(10%);
+}
+
+.searchIcon{
+  margin-right: 5px;
+}
+.search-main{
+  display:flex;
+  border: 0.1px;
+  border-style: outset;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+}
+
+.search{
+  margin: 10px;
+
+}
+.btn{
+  text-align: center;
+}
+
