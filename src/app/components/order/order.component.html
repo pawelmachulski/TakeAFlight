@@ -1,0 +1,21 @@
+<p>order works!</p>
+
+
+<h1>{{order | json}}</h1>
+
+<div class="container">
+  <div class="firstrow">
+    <div class="loty">LOTY</div>
+    <div class="price">{{order.route.price}} $</div>
+  </div>
+  <div class="secondrow">
+    <div class="date">
+      <div class="month">{{order.flight.dateOfFlight}}</div>
+      <div class="day">{{order.flight.dateOfFlight}}</div>
+    </div>
+    <div class="maininfo">
+      <div>{{order.route.from}} - {{order.route.to}}</div>
+    <div>{{order.route.departure}} - {{order.route.arrival}}</div>
+    </div>
+  </div>
+</div>

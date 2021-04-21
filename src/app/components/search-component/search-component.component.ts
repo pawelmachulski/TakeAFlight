@@ -56,10 +56,10 @@ export class SearchComponentComponent implements OnInit {
 
   onSubmit(){
     let newFlight: Flight = this.form.value;
+    this.routesService.flightData = newFlight;
     this.routesService.results = this.routesService.getRoutes(newFlight);
     this.router.navigateByUrl('/result')
 
-    console.log(this.routesService.getRoutes(newFlight));
   }
 
   searchIcon = faSearch;

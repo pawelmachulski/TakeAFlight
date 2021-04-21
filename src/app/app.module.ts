@@ -11,6 +11,8 @@ import { ResultComponent } from './components/result/result.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthModule } from './auth/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrderComponent } from './components/order/order.component';
+import { MonthPipe } from './pipes/month.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToolbarComponentComponent,
     SearchComponentComponent,
     ResultComponent,
-    FooterComponent
+    FooterComponent,
+    OrderComponent,
+    MonthPipe
   ],
   imports: [
     BrowserModule,

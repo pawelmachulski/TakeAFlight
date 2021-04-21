@@ -12,7 +12,7 @@
     <div class="hours">Godzina wylotu: {{resul.departure}} Godzina przylotu: {{resul.arrival}}</div>
     <div class="duration">Czas trwania: {{resul.duration}} godz</div>
     <div class="price"> Cena: {{resul.price}} PLN</div>
-    <button class="order">Zamów</button>
+    <button (click)="order(resul)" class="order">Zamów</button>
   </div>
 </div>
 

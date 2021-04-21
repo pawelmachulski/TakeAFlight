@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Flight } from '../interfaces/Flight';
 import data from '../../assets/routes.json'
+import { Route } from '../models/Route';
 
 @Injectable({
   providedIn: 'root'
@@ -8,37 +9,8 @@ import data from '../../assets/routes.json'
 export class RoutesService {
 
   results;
+  flightData;
   routes = data;
-
-  // routes = [
-  //   {
-  //   "id": 1,
-  //   "from": "Paryż",
-  //   "to": "Londyn",
-  //   "price": "50",
-  //   "duration": "2:30",
-  //   "departure": "15:00",
-  //   "arrival": "17:30"
-  //   },
-  //     {
-  //   "id": 2,
-  //   "from": "Paryż",
-  //   "to": "Warszawa",
-  //   "price": "65",
-  //   "duration": "2:20",
-  //   "departure": "13:00",
-  //   "arrival": "15:30"
-  //   },
-  //     {
-  //   "id": 3,
-  //   "from": "Warszawa",
-  //   "to": "Nowy Jork",
-  //   "price": "250",
-  //   "duration": "7:30",
-  //   "departure": "10:00",
-  //   "arrival": "17:30"
-  //   }
-  // ]
 
   getAllRoutes(){
     return this.routes;
