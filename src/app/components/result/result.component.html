@@ -1,5 +1,5 @@
-<h3 class="center" *ngIf="result != ''; else noResult">
-  {{result[0].from}} - {{result[0].to}}
+<h3 class="center" *ngIf="results != ''; else noResult">
+  {{results[0].from}} - {{results[0].to}}
 </h3>
 <ng-template #noResult>
   <h3 #noResult>
@@ -7,12 +7,12 @@
   </h3>
 </ng-template>
 
-<div class="result" *ngFor="let resul of result">
+<div class="result" *ngFor="let result of results">
   <div class="result-main">
-    <div class="hours">Godzina wylotu: {{resul.departure}} Godzina przylotu: {{resul.arrival}}</div>
-    <div class="duration">Czas trwania: {{resul.duration}} godz</div>
-    <div class="price"> Cena: {{resul.price}} PLN</div>
-    <button (click)="order(resul)" class="order">Zamów</button>
+    <div class="hours">Godzina wylotu: {{result.departure}} Godzina przylotu: {{result.arrival}}</div>
+    <div class="duration">Czas trwania: {{result.duration}} godz</div>
+    <div class="price"> Cena: {{result.price}} PLN</div>
+    <button (click)="order(result)" class="order">Zamów</button>
   </div>
 </div>
 

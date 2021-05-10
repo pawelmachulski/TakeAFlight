@@ -13,17 +13,17 @@ export class ResultComponent implements OnInit {
 
   constructor(private routeService: RoutesService, private orderService: OrderService, private router: Router) { }
 
-  result;
+  results;
 
   order1: Order;
 
   ngOnInit(): void {
-    this.result = this.routeService.results;
+    this.results = this.routeService.results;
   }
 
-  order(resul){
+  order(result){
 
-    let newOrder: Order = {route: resul, flight: this.routeService.flightData, luggage: null, seatNo: null}
+    let newOrder: Order = {route: result, flight: this.routeService.flightData, luggage: null, seatNo: null}
 
     this.orderService.orderData = newOrder;
     this.router.navigateByUrl('/order')

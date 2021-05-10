@@ -15,6 +15,7 @@ import { PlacesService } from "../../services/places.service";
 import { RoutesService } from "../../services/routes-service";
 import {Flight} from '../../interfaces/Flight';
 import { Router } from '@angular/router';
+import { Route } from '../../models/Route';
 
 @Component({
   selector: 'app-search-component',
@@ -30,7 +31,7 @@ export class SearchComponentComponent implements OnInit {
   destinations = [];
   passengers:number;
   date:Date;
-  results;
+  results:Route[];
 
   constructor(private formBuilder: FormBuilder,
               private routesService: RoutesService,
@@ -55,7 +56,12 @@ export class SearchComponentComponent implements OnInit {
   }
 
   onSubmit(){
-    let newFlight: Flight = this.form.value;
+    let newFlight: Flight =
+    {fromCity: this.form.value.place,
+    dateOfFlight: this.form.value.date,
+    toCity: this.form.value.destination,
+    noOfPassengers: this.form.value.passengers
+    };
     this.routesService.flightData = newFlight;
     this.routesService.results = this.routesService.getRoutes(newFlight);
     this.router.navigateByUrl('/result')

@@ -8,9 +8,11 @@ import { Route } from '../models/Route';
 })
 export class RoutesService {
 
-  results;
-  flightData;
-  routes = data;
+
+  results: Route[];
+  flightData: Flight;
+  routes: Route[] = data as Route[];
+
 
   getAllRoutes(){
     return this.routes;
@@ -24,8 +26,8 @@ export class RoutesService {
     return [...new Set(this.routes.filter((s)=>s.from == city).map(item=>item.to))];
   }
 
-  getRoutes(flightData){
-    return this.routes.filter((s)=>s.from == flightData.place && s.to == flightData.destination);
+  getRoutes(flightData: Flight){
+    return this.routes.filter((s)=>s.from == flightData.fromCity && s.to == flightData.toCity);
   }
 
 
