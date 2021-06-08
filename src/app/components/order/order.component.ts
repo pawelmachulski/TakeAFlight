@@ -112,7 +112,6 @@ export class OrderComponent implements OnInit {
   }
 
   addAnotherPlace(){
-    console.log(this.form.get('Id').value)
     if(this.alert != null)
     {
       return;
@@ -125,16 +124,20 @@ export class OrderComponent implements OnInit {
       this.alert = "Nie można wybrać dwóch takich samych miejsc!"
     }
 
-    console.log(this.alert)
-    // this.seats.forEach((element,index)=>{
-    //   if(element.ItemName==this.form.get('Id').value){
-    //     delete this.seats[index];
-    //     console.log(this.seats)
-    //   }
-    // })
   }
 
   commitOrder(){
+    if(this.alert != null)
+    {
+      return;
+    }
+    if (!this.selectedSeatsList.some((item) => item == this.form.get('Id').value)) {
+      this.selectedSeatsList.push(this.form.get('Id').value)
+    }
+    else{
+      this.alert = "Nie można wybrać dwóch takich samych miejsc!"
+      return;
+    }
     this.testToggle = this.testToggle ? true : true;
   }
 

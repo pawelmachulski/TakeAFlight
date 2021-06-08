@@ -14,11 +14,13 @@ export class ResultComponent implements OnInit {
   constructor(private routeService: RoutesService, private orderService: OrderService, private router: Router) { }
 
   results;
+  flightDate;
 
   order1: Order;
 
   ngOnInit(): void {
     this.results = this.routeService.results;
+    this.flightDate = this.routeService.flightData.dateOfFlight;
   }
 
   order(result){

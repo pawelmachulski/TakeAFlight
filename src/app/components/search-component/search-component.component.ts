@@ -3,6 +3,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import {
   FormBuilder,
   FormGroup,
@@ -72,6 +73,7 @@ export class SearchComponentComponent implements OnInit {
   arrivalIcon = faPlaneArrival;
   departureIcon = faPlaneDeparture;
   passangersIcon = faUsers;
+  callendarIcon = faCalendar;
 
   get place() {return this.form.get("place")}
   get destination() {return this.form.get("destination")}
