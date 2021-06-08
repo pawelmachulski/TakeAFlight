@@ -1,21 +1,122 @@
-<p>order works!</p>
-
-
-<h1>{{order | json}}</h1>
-
 <div class="container">
-  <div class="firstrow">
-    <div class="loty">LOTY</div>
-    <div class="price">{{fullPrice}} $</div>
+  <div class="container">
+    <div class="row row justify-content-center">
+      <div class="col-4">
+        <div class="single-luggage">
+          <div class="deal-top">
+            <h3>{{order.route.from}} - {{order.route.to}}</h3>
+            <h4> {{fullPrice}} <span class="sup">$</span> </h4>
+          </div>
+          <div class="deal-bottom">
+            <ul class="deal-item">
+              <li>{{order.flight.dateOfFlight}}</li>
+              <li>{{order.route.departure}} - {{order.route.arrival}}</li>
+            </ul>
+            <div class="btn-area">
+              <button (click)="luggageToggle()" class="btn btn-primary">Wybierz bagaż<i class="fas fa-sign-in-alt"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="secondrow">
-    <div class="date">
-      <div class="month">{{order.flight.dateOfFlight}}</div>
-      <div class="day">{{order.flight.dateOfFlight}}</div>
+
+  <div *ngIf="luggageButtonIsClicked" class="luggage container">
+  <div class="pricing-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="single-luggage">
+              <div class="deal-top">
+                <h3>MAŁA TORBA</h3>
+                <h4> 0 <span class="sup">$</span> </h4>
+              </div>
+              <div class="deal-bottom">
+                <ul class="deal-item">
+                  <li>Wymiary: 40 x 20 x 25 cm</li>
+                  <li>Waga: bez limitu</li>
+                </ul>
+                <div class="btn-area">
+                  <a (click)="selectNoneLuggage()">WYBIERZ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="single-luggage">
+              <div class="deal-top">
+                <h3>Bagaż podręczny</h3>
+                <h4> {{fullPrice * 0.2 | number : '1.0-0'}} <span class="sup">$</span> </h4>
+              </div>
+              <div class="deal-bottom">
+                <ul class="deal-item">
+                  <li>Wymiary: 55 x 40 x 20 cm</li>
+                  <li>Waga: max 10kg </li>
+                </ul>
+                <div class="btn-area">
+                  <a (click)="selectSmallLuggage()">WYBIERZ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="single-luggage">
+              <div class="deal-top">
+                <h3>BAGAŻ REJESTROWANY</h3>
+                <h4> {{fullPrice * 0.4 | number : '1.0-0'}} <span class="sup">$</span> </h4>
+              </div>
+              <div class="deal-bottom">
+                <ul class="deal-item">
+                  <li>Wymiary: 55 x 40 x 20 cm</li>
+                  <li>Waga: max 23kg </li>
+                </ul>
+                <div class="btn-area">
+                  <a (click)="selectBigLuggage()">WYBIERZ</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="maininfo">
-      <div>{{order.route.from}} - {{order.route.to}}</div>
-    <div>{{order.route.departure}} - {{order.route.arrival}}</div>
-    </div>
+  </div>
+  <div *ngIf="seatsButtonIsClicked" class="justify-content-center">
+    <div class="row">
+      <div class="col">
+        <img src="https://i.ibb.co/PgxMtzF/boeing737.jpg" alt="" class="src">
+      </div>
+      <div class="col" *ngFor="let i of passangers let k = index">
+        <div class="row">
+            <label for="seats">Wybierz miejsce dla osoby nr: {{k+1}}</label>
+            <form [formGroup]="form">
+              <select class="form-control" formControlName="Id">
+                  <option *ngFor="let seat of seats let i = index" [hidden]="form.get('Id').value==seat.Id?true:null" type="number">
+                    {{seat.ItemName}}
+                  </option>
+                </select>
+            </form>
+
+        </div>
+      </div>
+      <div *ngIf="passangers.length < order.flight.noOfPassengers && alert == null" >
+          <button type="submit" class="btn btn-primary" (click)="addAnotherPlace()">Wybierz miejsce dla kolejnej osoby</button>
+      </div>
+      <div *ngIf="passangers.length == order.flight.noOfPassengers && alert == null" >
+          <button type="submit" class="btn btn-primary" (click)="commitOrder()">Zatwierdź i przejdź do podsumowania</button>
+      </div>
+      <div *ngIf="alert != null">
+        {{alert}}
+        <button (click)="clearAlert()">OK</button>
+      </div>
+
+      <div *ngIf="testToggle">
+        <h3>PODSUMOWANIE</h3>
+        <ol>
+        <li>{{order.flight.fromCity}} - {{order.flight.toCity}}</li>
+        <li>{{order.flight.dateOfFlight}}</li>
+        <li>Wybrane miejsca: {{selectedSeatsList}}</li>
+        <li>Wybrany bagaż: {{order.luggage}}</li>
+        </ol>
+      </div>
   </div>
 </div>

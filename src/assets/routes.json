@@ -34,5 +34,42 @@
     "duration": "7:30",
     "departure": "12:00",
     "arrival": "19:30"
-    }
+    },
+  {
+    "id": 5,
+    "from": "Warszawa",
+    "to": "Tokyo",
+    "price": "500",
+    "duration": "10:30",
+    "departure": "08:00",
+    "arrival": "18:30"
+    },
+  {
+    "id": 6,
+    "from": "Lizbona",
+    "to": "Moskwa",
+    "price": "200",
+    "duration": "05:30",
+    "departure": "13:00",
+    "arrival": "18:30"
+    },
+{
+  "id": 7,
+  "from": "Berlin",
+  "to": "Phuket",
+  "price": "900",
+  "duration": "10:30",
+  "departure": "04:00",
+  "arrival": "14:30"
+  },
+{
+  "id": 8,
+  "from": "Lizbona",
+  "to": "Gdańsk",
+  "price": "100",
+  "duration": "04:30",
+  "departure": "16:00",
+  "arrival": "20:30"
+  }
+
 ]

@@ -7,7 +7,7 @@
   <div class="toolbar-links">
       <ul>
           <li><a href="/search">Szukaj lotów</a></li>
-          <li><a href="#">Nasze kierunki</a></li>
+          <li><a href="/directions">Nasze kierunki</a></li>
           <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
           <li *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
       </ul>

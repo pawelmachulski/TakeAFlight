@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderComponent } from './components/order/order.component';
 import { MonthPipe } from './pipes/month.pipe';
+import { DirectionsComponent } from './components/directions/directions.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MonthPipe } from './pipes/month.pipe';
     ResultComponent,
     FooterComponent,
     OrderComponent,
-    MonthPipe
+    MonthPipe,
+    DirectionsComponent
   ],
   imports: [
     BrowserModule,
