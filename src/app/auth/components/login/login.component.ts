@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private routesService: RoutesService, private router: Router) { }
 
   isLoggedIn = this.authService.isLoggedIn;
+  loginSuccess = true;
 
   ngOnInit(): void {
   }
@@ -23,8 +24,15 @@ export class LoginComponent implements OnInit {
     this.authService.login(f.value);
     this.isLoggedIn = this.authService.isLoggedIn;
     if (this.isLoggedIn){
-      this.router.navigateByUrl('/result')
+      this.router.navigateByUrl('/search')
     }
+    else{
+      this.loginSuccess = false;
+    }
+  }
+
+  clear(){
+    this.loginSuccess = true;
   }
 
 }

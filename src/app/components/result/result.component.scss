@@ -1,33 +1,11 @@
-// .result.main{
-//   display:flex;
-// }
-// .result{
-//   border: solid 1px black;
-//   background-color: grey;
-//   margin-top: 40px;
-//   margin-bottom: 20px;
-//   width: 70vw;
-//   margin-left: 20px;
-//   margin-right:20px;
-//   display: flex;
-
-// }
-// .hours{
-//   flex-grow:3;
-// }
-
-// .order{
-//   text-align: center;
-// }
-
-// .h3{
-//   text-align: center;
-// }
-.center{
+.header{
   text-align: center;
+  color: rgb(22, 21, 21);
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: "Google Sans Display", Roboto, Arial, sans-serif;
+  font-size: 30px;
 }
-
-
 
 .single-luggage {
   text-align: center;
@@ -101,7 +79,6 @@
   font-weight: bold;
   text-decoration: none;
 }
-
 
 .single-luggage:hover {
   background: rgb(35, 94, 219);

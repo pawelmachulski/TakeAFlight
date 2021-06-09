@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service'
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-toolbar-component',
@@ -14,6 +16,7 @@ export class ToolbarComponentComponent implements OnInit {
   }
 
   isLoggedIn = this.authService.isLoggedIn;
+  planeIcon = faPlane;
 
   logout(){
     this.authService.logout();

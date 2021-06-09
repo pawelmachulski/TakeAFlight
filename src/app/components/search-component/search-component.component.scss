@@ -9,7 +9,7 @@
   font-size: 56px;
   line-height: 64px;
   font-family: "Google Sans Display", Roboto, Arial, sans-serif;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .img img{
@@ -55,4 +55,24 @@
 
 .test{
   text-align: center;
+}
+
+.spacer{
+  margin-top: 10vh;
+}
+
+.box{
+  background-color: rgb(107, 176, 197);
+  border: 1px solid white;
+  text-align: center;
+  height: 20vh;
+  color: white;
+}
+
+.iconColor{
+  color: white;
+}
+
+.box:hover{
+  background-color: rgb(77, 135, 153);
 }

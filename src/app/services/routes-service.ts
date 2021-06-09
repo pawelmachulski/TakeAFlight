@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Flight } from '../interfaces/Flight';
+import { Flight } from '../models/Flight';
 import data from '../../assets/routes.json'
 import { Route } from '../models/Route';
 

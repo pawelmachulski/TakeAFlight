@@ -1,5 +1,5 @@
 export enum Luggage{
-  None= "None",
-  Hand ="Hand Luggage",
-  Checked = "Checked Luggage"
+  None= "Mała torba",
+  Hand ="Bagaż podręczny",
+  Checked = "Bagaż rejestrowany"
 }

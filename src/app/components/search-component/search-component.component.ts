@@ -4,6 +4,9 @@ import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faVirus } from '@fortawesome/free-solid-svg-icons'
+import { faBed } from '@fortawesome/free-solid-svg-icons'
+import { faCar } from '@fortawesome/free-solid-svg-icons'
 import {
   FormBuilder,
   FormGroup,
@@ -14,7 +17,7 @@ import {
 } from '@angular/forms';
 import { PlacesService } from "../../services/places.service";
 import { RoutesService } from "../../services/routes-service";
-import {Flight} from '../../interfaces/Flight';
+import {Flight} from '../../models/Flight';
 import { Router } from '@angular/router';
 import { Route } from '../../models/Route';
 
@@ -58,11 +61,12 @@ export class SearchComponentComponent implements OnInit {
 
   onSubmit(){
     let newFlight: Flight =
-    {fromCity: this.form.value.place,
-    dateOfFlight: this.form.value.date,
-    toCity: this.form.value.destination,
-    noOfPassengers: this.form.value.passengers
-    };
+      {fromCity: this.form.value.place,
+      dateOfFlight: this.form.value.date,
+      toCity: this.form.value.destination,
+      noOfPassengers: this.form.value.passengers
+      };
+
     this.routesService.flightData = newFlight;
     this.routesService.results = this.routesService.getRoutes(newFlight);
     this.router.navigateByUrl('/result')
@@ -74,6 +78,9 @@ export class SearchComponentComponent implements OnInit {
   departureIcon = faPlaneDeparture;
   passangersIcon = faUsers;
   callendarIcon = faCalendar;
+  virusIcon = faVirus;
+  bedIcon = faBed;
+  carIcon = faCar;
 
   get place() {return this.form.get("place")}
   get destination() {return this.form.get("destination")}

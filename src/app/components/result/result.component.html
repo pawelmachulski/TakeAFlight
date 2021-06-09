@@ -1,44 +1,36 @@
-<h3 class="center" *ngIf="results != ''; else noResult">
-  {{results[0].from}} - {{results[0].to}}<br>
+<div class="header" *ngIf="results != ''; else noResult">
+  <fa-icon [icon]="departureIcon"></fa-icon>{{results[0].from}} - <fa-icon [icon]="arrivalIcon"></fa-icon>
+  {{results[0].to}}<br>
   {{flightDate}}
-</h3>
+</div>
 <ng-template #noResult>
   <h3 #noResult>
-      Brak lotów :(
+    Brak lotów :(
   </h3>
 </ng-template>
 
-<!-- <div class="result" *ngFor="let result of results">
-  <div class="result-main">
-    <div class="hours">Godzina wylotu: {{result.departure}} Godzina przylotu: {{result.arrival}}</div>
-    <div class="duration">Czas trwania: {{result.duration}} godz</div>
-    <div class="price"> Cena: {{result.price}} PLN</div>
-    <button (click)="order(result)" class="order">Zamów</button>
-  </div>
-</div> -->
-
 <div class="result" *ngFor="let result of results">
   <div class="pricing-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-6 col-xs-12"></div>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="single-luggage">
-              <div class="deal-top">
-                <h3>Godzina wylotu: {{result.departure}} Godzina przylotu: {{result.arrival}}</h3>
-              </div>
-              <div class="deal-bottom">
-                <ul class="deal-item">
-                  <li> Czas trwania: {{result.duration}} godz </li>
-                  <li>Cena: {{result.price}} PLN</li>
-                </ul>
-                <div class="btn-area">
-                  <button (click)="order(result)" class="btn btn-primary">Zamów<i class="fas fa-sign-in-alt"></i></button>
-                </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12"></div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="single-luggage">
+            <div class="deal-top">
+              <h3>Godzina wylotu: {{result.departure}} Godzina przylotu: {{result.arrival}}</h3>
+            </div>
+            <div class="deal-bottom">
+              <ul class="deal-item">
+                <li> Czas trwania: {{result.duration}} godz </li>
+                <li>Cena: {{result.price}} PLN</li>
+              </ul>
+              <div class="btn-area">
+                <button (click)="order(result)" class="btn btn-primary">Zamów<i class="fas fa-sign-in-alt"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

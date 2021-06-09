@@ -3,6 +3,8 @@ import { RoutesService } from "../../services/routes-service";
 import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
 import { Order } from '../../models/Order'
+import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-result',
@@ -15,6 +17,9 @@ export class ResultComponent implements OnInit {
 
   results;
   flightDate;
+
+  arrivalIcon = faPlaneArrival;
+  departureIcon = faPlaneDeparture;
 
   order1: Order;
 

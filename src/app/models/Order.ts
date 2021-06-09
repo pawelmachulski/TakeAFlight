@@ -1,5 +1,5 @@
 import { Route } from './Route';
-import { Flight } from '../interfaces/Flight';
+import { Flight } from '../models/Flight';
 import { Luggage } from './Luggage'
 
 export interface Order {
