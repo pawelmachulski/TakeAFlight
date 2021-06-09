@@ -1,15 +1,22 @@
- <div class="toolbar" role="banner">
-  <a href="#">
-    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="white" width="45px" height="45px"><g><path d="M22,16v-2l-8.5-5V3.5C13.5,2.67,12.83,2,12,2s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5L8,22l4-1l4,1l0-1.5L13.5,19 v-5.5L22,16z"/><path d="M0,0h24v24H0V0z" fill="none"/></g></svg>
-  </a>
-  <span>Take a flight</span>
-  <div class="spacer"></div>
-  <div class="toolbar-links">
-      <ul>
-          <li><a href="/search">Szukaj lotów</a></li>
-          <li><a href="/directions">Nasze kierunki</a></li>
-          <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" routerLinkActive="active">Login</a></li>
-          <li *ngIf="isLoggedIn"><a href="#" (click)="logout()">Logout</a></li>
-      </ul>
-  </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Take a flight</a>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/search">Szukaj lotów <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/directions">Nasze kierunki <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active" *ngIf="!isLoggedIn">
+            <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login <span class="sr-only">(current)</span> </a>
+          </li>
+          <li class="nav-item active" *ngIf="isLoggedIn">
+            <a class="nav-link" href="#" (click)="logout()">Logout <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>

@@ -20,4 +20,6 @@ export class ToolbarComponentComponent implements OnInit {
     this.isLoggedIn = this.authService.isLoggedIn;
   }
 
+  public isMenuCollapsed = true;
+
 }

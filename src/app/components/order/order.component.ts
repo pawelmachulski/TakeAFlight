@@ -3,6 +3,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/models/Order';
 import { Luggage } from 'src/app/models/Luggage'
 import { FormGroup, FormControl } from '@angular/forms';
+import {AuthService} from '../../services/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -11,7 +13,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private orderSerivce: OrderService) { }
+  constructor(private orderSerivce: OrderService,
+    private authService: AuthService,
+    private router: Router) { }
 
   order: Order;
   fullPrice: number;
@@ -25,6 +29,7 @@ export class OrderComponent implements OnInit {
   passangers = [1];
   selectedSeatsList = [];
   alert = null;
+  luggagePrice = null;
 
   seats=[
     {Id:1,ItemName:"1A"},
@@ -87,13 +92,12 @@ export class OrderComponent implements OnInit {
 
   luggageToggle(){
     this.luggageButtonIsClicked = this.luggageButtonIsClicked ? true : true;
+    this.order.fullPrice = this.fullPrice
   }
 
   seatsToggle(){
     this.seatsButtonIsClicked = this.seatsButtonIsClicked ? true : true;
     this.order.luggage = this.selectedLuggage;
-    console.log(this.seatsButtonIsClicked)
-    console.log(this.selectedLuggage)
   }
 
   selectNoneLuggage(){
@@ -103,11 +107,13 @@ export class OrderComponent implements OnInit {
 
   selectSmallLuggage(){
     this.selectedLuggage = Luggage.Hand;
+    this.luggagePrice =  this.fullPrice*0.2*this.order.flight.noOfPassengers;
     this.seatsToggle();
   }
 
   selectBigLuggage(){
     this.selectedLuggage = Luggage.Checked;
+    this.luggagePrice =  this.fullPrice*0.4*this.order.flight.noOfPassengers;
     this.seatsToggle();
   }
 
@@ -133,11 +139,23 @@ export class OrderComponent implements OnInit {
     }
     if (!this.selectedSeatsList.some((item) => item == this.form.get('Id').value)) {
       this.selectedSeatsList.push(this.form.get('Id').value)
+      this.order.seatNo = this.selectedSeatsList;
+      this.orderSerivce.orderData = this.order;
+      this.order.fullPrice += this.luggagePrice
+      this.router.navigateByUrl('/summary')
     }
     else{
       this.alert = "Nie można wybrać dwóch takich samych miejsc!"
       return;
     }
+
+    if(!this.authService.isLoggedIn){
+      this.router.navigateByUrl('/summary')
+    }
+    else{
+      this.router.navigateByUrl('/summary')
+    }
+
     this.testToggle = this.testToggle ? true : true;
   }
 

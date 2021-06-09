@@ -25,7 +25,7 @@ export class ResultComponent implements OnInit {
 
   order(result){
 
-    let newOrder: Order = {route: result, flight: this.routeService.flightData, luggage: null, seatNo: null}
+    let newOrder: Order = {route: result, flight: this.routeService.flightData, luggage: null, seatNo: null, fullPrice: null}
 
     this.orderService.orderData = newOrder;
     this.router.navigateByUrl('/order')

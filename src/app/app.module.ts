@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderComponent } from './components/order/order.component';
 import { MonthPipe } from './pipes/month.pipe';
 import { DirectionsComponent } from './components/directions/directions.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DirectionsComponent } from './components/directions/directions.componen
     FooterComponent,
     OrderComponent,
     MonthPipe,
-    DirectionsComponent
+    DirectionsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

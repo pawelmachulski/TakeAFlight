@@ -6,5 +6,6 @@ export interface Order {
   route: Route;
   flight: Flight;
   luggage: Luggage;
-  seatNo: number;
+  seatNo: string[];
+  fullPrice: number;
 }
