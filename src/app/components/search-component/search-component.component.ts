@@ -15,7 +15,6 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
-import { PlacesService } from "../../services/places.service";
 import { RoutesService } from "../../services/routes-service";
 import {Flight} from '../../models/Flight';
 import { Router } from '@angular/router';
